@@ -1,16 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import raid from './Raid.png'
-import Itsas from './IM.jpg'
-import aventuraid from './Aventuraid.jpg'
+import bohemian_rhapsody from './bohemian_rhapsody.jpg'
+import green_book from './green_book.jpg'
+import forrest_gump from './forrest_gump.jpg'
+import ligne_verte from './ligne_verte.jpg'
+
+const [movie, setMovie] = React.useState(null);
+              React.useEffect(() => {
+                superagent
+                  .get("http://localhost:5000/application/movie/Forrest Gump")
+                  .then(response => setMovie(response.body.movie));
+              }, []);
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={raid} className="App-logo" alt="logo" />
         <h1 className="Titre">RaidStreaming</h1>
-        <form method="post" >
+        <form method="post">
           <p><input type="text" name="rechercher" placeholder="Rechercher un film/auteur ..."/></p>
         </form>
       </header>
@@ -18,10 +27,11 @@ function App() {
         <div className="Recommandé">
 
           <h2>Recommandé pour vous</h2>
+          <p> {movie.title} </p>
 
           <div className="FilmsRecommandés">
 
-              <img src={logo} className="img_film1" alt="Image du film 1" />
+              <img src={ligne_verte} className="img_film1" alt="Image du film 1" />
 
               <div className="Film1">
 
@@ -32,7 +42,12 @@ function App() {
 
               </div>
 
-              <img src={Itsas} className="img_film2" alt="Image du film 2" />
+              
+
+
+
+
+              <img src={green_book} className="img_film2" alt="Image du film 2" />
 
               <div className="Film2">
 
@@ -42,9 +57,9 @@ function App() {
                   <p> Genre: Sport </p>
               </div>
 
-              <img src={aventuraid} className="img_film3" alt="Image du film 3" />
+              <img src={forrest_gump} className="img_film3" alt="Image du film 3" />
               <h3 className="TitreFilm3"> Aventuraid </h3>
-              <img src={aventuraid} className="img_film4" alt="Image du film 3" />
+              <img src={bohemian_rhapsody} className="img_film4" alt="Image du film 3" />
               <h3 className="TitreFilm4"> Aventuraid </h3>
           </div>
         </div>
