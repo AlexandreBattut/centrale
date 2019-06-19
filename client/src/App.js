@@ -7,20 +7,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={raid} className="App-logo" alt="logo" />
-        <p className="TextDuMilieu">
-
-          J'ai tout changé
-
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className="Titre">RaidStreaming</h1>
+        <form method="post" >
+          <p><input type="text" name="rechercher" placeholder="Rechercher un film/auteur ..."/></p>
+        </form>
       </header>
+      <body>
+        <div className="Recommandé">
+          <h2>Recommandé pour vous</h2>
+        </div>
+      </body>
     </div>
   );
 }

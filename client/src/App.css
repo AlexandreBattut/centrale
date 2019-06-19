@@ -5,22 +5,23 @@
 .App-logo {
   animation: App-logo-spin infinite 5s linear;
   height: 40vmin;
-  pointer-events: none;
+  pointer-events: none
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 300px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.TextDuMilieu {
-    color: red
+.Titre {
+  color: red;
+  font-family: "Body Swipers";
 }
 
 .App-link {
