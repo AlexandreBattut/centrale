@@ -9,6 +9,7 @@ function App() {
         <img src={raid} className="App-logo" alt="logo" />
         <p className="TextDuMilieu">
           Ceci est le nouveau site interne du RaidCS
+
         </p>
         <a
           className="App-link"
