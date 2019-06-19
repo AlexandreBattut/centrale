@@ -1,0 +1,20 @@
+Return a movie key information based on his title
+---
+tags:
+  - movie
+parameters:
+  - name: author
+    in: path
+    type: string
+    description: Author of the movies
+
+responses:
+  200:
+    description: The movie's information were successfully retrieved
+    schema:
+      example:
+        movie:
+          title: the good the bad and the ugly
+          author: Sergio Leone
+          length: 2h58
+          genre: Western

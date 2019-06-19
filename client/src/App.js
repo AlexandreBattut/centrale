@@ -1,14 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import raid from './Raid.png'
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <img src={raid} className="App-logo" alt="logo" />
+        <p className="TextDuMilieu">
+          Ceci est le nouveau site interne du RaidCS
         </p>
         <a
           className="App-link"

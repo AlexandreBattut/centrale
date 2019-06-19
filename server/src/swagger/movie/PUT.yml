@@ -1,0 +1,35 @@
+Update a movie based on the sent information
+---
+tags:
+  - movie
+parameters:
+  - name: title
+    in: path
+    type: string
+    description: the title name of the movie
+
+  - name: body
+    in: body
+    schema:
+      type: object
+      properties:
+        author:
+          type: string
+          description: The author of the movie
+        length:
+          type: string
+          description: The length of the movie
+        genre:
+          type: string
+          description: The genre of the movie
+responses:
+  200:
+    description: The movie was successfully created
+    schema:
+      example:
+        movie:
+          title: the good the bad and the ugly
+          author: Sergio Leone
+          length: 2h58
+          genre: Western
+
