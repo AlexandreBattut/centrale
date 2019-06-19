@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={raid} className="App-logo" alt="logo" />
+        <img src={raid}   className="App-logo" alt="logo" />
         <h1 className="Titre">RaidStreaming</h1>
         <form method="post" >
           <p><input type="text" name="rechercher" placeholder="Rechercher un film/auteur ..."/></p>
@@ -29,6 +29,8 @@ function App() {
                   <p> Auteur: Filix </p>
                   <p> Durée: 2h30 </p>
                   <p> Genre: Horreur </p>
+
+
 
               </div>
 
