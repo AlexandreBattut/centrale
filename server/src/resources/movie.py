@@ -26,13 +26,15 @@ class MovieResource(Resource):
     @parse_params(
         Argument("author", location="json", required=True, help="The author of the movie:"),
         Argument("length", location="json", required=True, help="The length of the movie:"),
-        Argument("genre", location="json", required=True, help="The genre of the movie:")
+        Argument("genre", location="json", required=True, help="The genre of the movie:"),
+        Argument("image", location="json", required=True, help="The cover of the movie."),
+        Argument("note", location="json", required=True, help="The note given by the user to the movie.")
     )
     @swag_from("../swagger/movie/POST.yml")
-    def post(title, author,length, genre):
+    def post(title, author,length, genre, image, note):
         """ Create an movie based on the sent information """
         movie = MovieRepository.create(
-            title=title, author=author, length=length, genre=genre
+            title=title, author=author, length=length, genre=genre, image=image, note=note
         )
         return jsonify({"movie": movie.json})
 
@@ -40,13 +42,15 @@ class MovieResource(Resource):
     @parse_params(
         Argument("author", location="json", required=True, help="The author of the movie:"),
         Argument("length", location="json", required=True, help="The length of the movie:"),
-        Argument("genre", location="json", required=True, help="The genre of the movie:")
+        Argument("genre", location="json", required=True, help="The genre of the movie:"),
+        Argument("image", location="json", required=True, help="The cover of the movie."),
+        Argument("note", location="json", required=True, help="The note given by the user to the movie.")
     )
     @swag_from("../swagger/movie/PUT.yml")
-    def put(title, author,length, genre):
+    def put(title, author,length, genre, image, note):
         """ Update an movie based on the sent information """
         repository = MovieRepository()
-        movie = repository.update(title=title, author=author, length=length, genre=genre)
+        movie = repository.update(title=title, author=author, length=length, genre=genre, image=image, note=note)
         return jsonify({"movie": movie.json})
 class MovieAuthorResource(Resource):
 

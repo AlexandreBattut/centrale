@@ -22,6 +22,12 @@ parameters:
         genre:
           type: string
           description: The genre of the movie
+        image:
+          type: string
+          description: The movie's cover image
+        note:
+          type: integer
+          description: The note given by the user to the movie
 responses:
   200:
     description: The movie was successfully created
@@ -32,4 +38,6 @@ responses:
           author: Sergio Leone
           length: 2h58
           genre: Western
+          image: good_bad_ugly.png
+          note: 4
 
