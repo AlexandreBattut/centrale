@@ -5,15 +5,17 @@ import bohemian_rhapsody from './bohemian_rhapsody.jpg'
 import green_book from './green_book.jpg'
 import forrest_gump from './forrest_gump.jpg'
 import ligne_verte from './ligne_verte.jpg'
+const superagent = require('superagent');
 
-const [movie, setMovie] = React.useState(null);
+
+
+function App() {
+              const [movie, setMovie] = React.useState(0);
               React.useEffect(() => {
-                superagent
+              superagent
                   .get("http://localhost:5000/application/movie/Forrest Gump")
                   .then(response => setMovie(response.body.movie));
               }, []);
-
-function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -25,6 +27,7 @@ function App() {
       </header>
       <body>
         <div className="Recommandé">
+          <p> {movie.author} </p>
 
           <h2>Recommandé pour vous</h2>
           <p> {movie.title} </p>
