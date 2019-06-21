@@ -11,12 +11,23 @@ import ligne_verte from './ligne_verte.jpg'
 
 function App() {  
   const superagent = require('superagent');
+
   const [movie1, setMovie] = React.useState(0);
   React.useEffect(() => {
     superagent
       .get("http://localhost:5000/application/movie/Forrest Gump")
       .then(response => setMovie(response.body.movie));
   }, []);
+  var [note,setNote]=React.useState(0);
+  React.useEffect(()=> {
+    superagent
+        .put("http://localhost:5000/application/movie/Forrest Gump")
+        .send({note:'3'})
+        .end(function(resp){
+    console.log('Got post', resp.body)
+  })
+        },[])
+
   const [movie2, setMovie2] = React.useState(0);
   React.useEffect(() => {
     superagent
@@ -61,7 +72,74 @@ function App() {
                   <p> Durée: {movie1.length} </p>
                   <p> Genre: {movie1.genre} </p>
                   <p> note: {movie1.note}/5 </p>
+                <h4 className="vu?"> Avez vous vu ce film? Notez le ! </h4>
+
+
+                <button className="but" onClick= {()=> {
+
+                        superagent
+                            .put("http://localhost:5000/application/movie/Forrest Gump")
+                            .send({
+                      "author": "Robert Zemeckis",
+                      "genre": " Comédie dramatique",
+                      "image": "string",
+                      "length": "2h22",
+                      "note": 1
+                    }).end() }} >1/5</button>
+
+                     <button onClick={()=> {
+                        superagent
+                            .put("http://localhost:5000/application/movie/Forrest Gump")
+                            .send({
+                      "author": "Robert Zemeckis",
+                      "genre": " Comédie dramatique",
+                      "image": "string",
+                      "length": "2h22",
+                      "note": 2
+                    }).end()}}>2/5</button>
+
+                     <button onClick={()=> {
+                        superagent
+                            .put("http://localhost:5000/application/movie/Forrest Gump")
+                            .send({
+                      "author": "Robert Zemeckis",
+                      "genre": " Comédie dramatique",
+                      "image": "string",
+                      "length": "2h22",
+                      "note": 3
+                    }).end()}}>3/5</button>
+
+                     <button onClick={()=> {
+                        superagent
+                            .put("http://localhost:5000/application/movie/Forrest Gump")
+                            .send({
+                      "author": "Robert Zemeckis",
+                      "genre": " Comédie dramatique",
+                      "image": "string",
+                      "length": "2h22",
+                      "note": 4
+                    }).end()}}>4/5</button>
+
+
+                    <button onClick={()=> {
+                        superagent
+                            .put("http://localhost:5000/application/movie/Forrest Gump")
+                            .send({
+                      "author": "Robert Zemeckis",
+                      "genre": " Comédie dramatique",
+                      "image": "string",
+                      "length": "2h22",
+                      "note": 5
+                    }).end()}}>5/5</button>
+                    <div class="bouton">
+                          <p>
+
+                         </p>
+                        </div>
+                    <a href="javascript:window.location.reload()" className="btn">Confirmer le vote</a>
               </div>
+
+
 
               <img src={ligne_verte} className="img_film2" alt="Image du film 2" />
               <div className="Film2">
