@@ -1,0 +1,35 @@
+Create an user based on the sent information
+---
+tags:
+  - note
+parameters:
+  - name: user_first_name
+    in: path
+    type: string
+    description: the first name of the user
+  - name: user_last_name
+    in: path
+    type: string
+    description: the last name of the user
+  - name: movie
+    in: path
+    type: string
+    description: the title of the movie
+  - name: body
+    in: body
+    schema:
+      type: object
+      properties:
+        note:
+          type: integer
+          description: The note given to the film by  the user
+responses:       
+  200:
+    description: The note was successfully created
+    schema:
+      example:
+        note:
+          user_first_name: Doe
+          user_last_name: John
+          movie: Forrest Gump
+          note: 5

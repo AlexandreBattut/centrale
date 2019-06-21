@@ -7,8 +7,6 @@ import forrest_gump from './forrest_gump.jpg'
 import ligne_verte from './ligne_verte.jpg'
 
 
-
-
 function App() {  
   const superagent = require('superagent');
   const [movie1, setMovie] = React.useState(0);
@@ -37,14 +35,13 @@ function App() {
   }, []);
 
 
-
   return (
     <div className="App">
       <header className="App-header">
         <img src={raid} className="App-logo" alt="logo" />
         <h1 className="Titre">RaidStreaming</h1>
-        <form method="post">
-          <p><input type="text" name="rechercher" placeholder="Rechercher un film/auteur ..."/></p>
+        <form>
+          <input placeholder="Rechercher un film" type="text"/>
         </form>
       </header>
       <body>

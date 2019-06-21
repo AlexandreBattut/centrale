@@ -1,0 +1,16 @@
+Return a note information based on its primary keys
+---
+tags:
+  - note
+parameters:
+  - name: movie
+    in: path
+    type: string
+    description: the title of the movie
+responses:
+  200:
+    description: The movie's notes were successfully retrieved
+    schema:
+      example:
+        note:
+          notes: [3,4,2,5]

@@ -58,4 +58,5 @@ class MovieAuthorResource(Resource):
    @swag_from("../swagger/movie/GET_author.yml")
    def get(author):
        movies = MovieAuthorRepository.get(author=author)
-       return jsonify([e.serialize() for e in movies])
+       return jsonify([movie.serialize() for movie in movies])
+

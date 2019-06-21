@@ -1,0 +1,28 @@
+Return a note information based on its primary keys
+---
+tags:
+  - note
+parameters:
+  - name: user_first_name
+    in: path
+    type: string
+    description: the first name of the user
+  - name: user_last_name
+    in: path
+    type: string
+    description: the last name of the user
+  - name: movie
+    in: path
+    type: string
+    description: the title of the movie
+responses:
+  200:
+    description: The note's information were successfully retrieved
+    schema:
+      example:
+        note:
+          user_first_name: Jean
+          user_last_name: Martin
+          movie: Forrest Gump
+          note: 5
+          
