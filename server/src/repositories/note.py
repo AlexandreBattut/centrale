@@ -13,7 +13,7 @@ class NoteRepository:
 
     def update(self, user_first_name, user_last_name, movie, note):
         """ Update a note """
-        notation = self.get(user_first_name, user_last_name, _movie)
+        notation = self.get(user_first_name, user_last_name, movie)
         notation.note = note
 
         return notation.save()

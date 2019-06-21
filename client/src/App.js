@@ -29,13 +29,13 @@ function App() {
   const [movie2, setMovie2] = React.useState(0);
   React.useEffect(() => {
     superagent
-      .get("http://localhost:5000/application/movie/La Ligne Verte")
+      .get("http://localhost:5000/application/movie/Bohemian Rhapsody")
       .then(response => setMovie2(response.body.movie));
   }, []);
   const [movie3, setMovie3] = React.useState(0);
   React.useEffect(() => {
     superagent
-      .get("http://localhost:5000/application/movie/Bohemian Rhapsody")
+      .get("http://localhost:5000/application/movie/La Ligne Verte")
       .then(response => setMovie3(response.body.movie));
   }, []);
   const [movie4, setMovie4] = React.useState(0);
@@ -45,12 +45,39 @@ function App() {
       .then(response => setMovie4(response.body.movie));
   }, []);
 
+  const [note_movie1, setnote_movie1] = React.useState(2);
+  React.useEffect(() => {
+    superagent
+      .get("http://localhost:5000/application/note/Forrest Gump")
+      .then(response => setnote_movie1(response.body));
+  }, []);
+
+  const [note_movie2, setnote_movie2] = React.useState(2);
+  React.useEffect(() => {
+    superagent
+      .get("http://localhost:5000/application/note/Bohemian Rhapsody")
+      .then(response => setnote_movie2(response.body));
+  }, []);
+
+  const [note_movie3, setnote_movie3] = React.useState(2);
+  React.useEffect(() => {
+    superagent
+      .get("http://localhost:5000/application/note/La Ligne Verte")
+      .then(response => setnote_movie3(response.body));
+  }, []);
+
+  const [note_movie4, setnote_movie4] = React.useState(2);
+  React.useEffect(() => {
+    superagent
+      .get("http://localhost:5000/application/note/Green Book : Sur Les Routes Du Sud")
+      .then(response => setnote_movie4(response.body));
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={raid} className="App-logo" alt="logo" />
-        <h1 className="Titre">RaidStreaming</h1>
+        <h1 className="Titre">Netflix</h1>
         <form>
           <input placeholder="Rechercher un film" type="text"/>
         </form>
@@ -68,66 +95,41 @@ function App() {
                   <p> Auteur: {movie1.author} </p>
                   <p> Durée: {movie1.length} </p>
                   <p> Genre: {movie1.genre} </p>
-                  <p> note: {movie1.note}/5 </p>
+                  <p> note moyenne: {note_movie1}/5 </p>
                 <h4 className="vu?"> Avez vous vu ce film? Notez le ! </h4>
 
 
                 <button className="but" onClick= {()=> {
 
                         superagent
-                            .put("http://localhost:5000/application/movie/Forrest Gump")
-                            .send({
-                      "author": "Robert Zemeckis",
-                      "genre": " Comédie dramatique",
-                      "image": "string",
-                      "length": "2h22",
-                      "note": 1
+                            .put("http://localhost:5000/application/note/1/user/Forrest Gump")
+                            .send({"note": 1
                     }).end() }} >1/5</button>
 
                      <button onClick={()=> {
                         superagent
-                            .put("http://localhost:5000/application/movie/Forrest Gump")
-                            .send({
-                      "author": "Robert Zemeckis",
-                      "genre": " Comédie dramatique",
-                      "image": "string",
-                      "length": "2h22",
-                      "note": 2
-                    }).end()}}>2/5</button>
+                        .put("http://localhost:5000/application/note/1/user/Forrest Gump")
+                        .send({"note": 2
+                }).end() }} >2/5</button>
 
                      <button onClick={()=> {
                         superagent
-                            .put("http://localhost:5000/application/movie/Forrest Gump")
-                            .send({
-                      "author": "Robert Zemeckis",
-                      "genre": " Comédie dramatique",
-                      "image": "string",
-                      "length": "2h22",
-                      "note": 3
-                    }).end()}}>3/5</button>
+                        .put("http://localhost:5000/application/note/1/user/Forrest Gump")
+                        .send({"note": 3
+                }).end() }} >3/5</button>
 
                      <button onClick={()=> {
                         superagent
-                            .put("http://localhost:5000/application/movie/Forrest Gump")
-                            .send({
-                      "author": "Robert Zemeckis",
-                      "genre": " Comédie dramatique",
-                      "image": "string",
-                      "length": "2h22",
-                      "note": 4
-                    }).end()}}>4/5</button>
+                        .put("http://localhost:5000/application/note/1/user/Forrest Gump")
+                        .send({"note": 4
+                }).end() }} >4/5</button>
 
 
                     <button onClick={()=> {
                         superagent
-                            .put("http://localhost:5000/application/movie/Forrest Gump")
-                            .send({
-                      "author": "Robert Zemeckis",
-                      "genre": " Comédie dramatique",
-                      "image": "string",
-                      "length": "2h22",
-                      "note": 5
-                    }).end()}}>5/5</button>
+                        .put("http://localhost:5000/application/note/1/user/Forrest Gump")
+                        .send({"note": 5
+                }).end() }} >5/5</button>
                     <div class="bouton">
                           <p>
 
@@ -138,16 +140,56 @@ function App() {
 
 
 
-              <img src={ligne_verte} className="img_film2" alt="Image du film 2" />
+              <img src={bohemian_rhapsody} className="img_film2" alt="Image du film 2" />
               <div className="Film2">
                   <h3 className="TitreFilm2"> {movie2.title} </h3>
                   <p> Auteur: {movie2.author} </p>
                   <p> Durée: {movie2.length} </p>
                   <p> Genre: {movie2.genre} </p>
-                  <p> note: {movie2.note}/5 </p>
+                  <p> note moyenne: {note_movie2}/5 </p>
+                <h4 className="vu?"> Avez vous vu ce film? Notez le ! </h4>
+
+
+                <button className="but" onClick= {()=> {
+
+                        superagent
+                            .put("http://localhost:5000/application/note/1/user/Bohemian Rhapsody")
+                            .send({"note": 1
+                    }).end() }} >1/5</button>
+
+                     <button onClick={()=> {
+                        superagent
+                        .put("http://localhost:5000/application/note/1/user/Bohemian Rhapsody")
+                        .send({"note": 2
+                }).end() }} >2/5</button>
+
+                     <button onClick={()=> {
+                        superagent
+                        .put("http://localhost:5000/application/note/1/user/Bohemian Rhapsody")
+                        .send({"note": 3
+                }).end() }} >3/5</button>
+
+                     <button onClick={()=> {
+                        superagent
+                        .put("http://localhost:5000/application/note/1/user/Bohemian Rhapsody")
+                        .send({"note": 4
+                }).end() }} >4/5</button>
+
+
+                    <button onClick={()=> {
+                        superagent
+                        .put("http://localhost:5000/application/note/1/user/Bohemian Rhapsody")
+                        .send({"note": 5
+                }).end() }} >5/5</button>
+                    <div class="bouton">
+                          <p>
+
+                         </p>
+                        </div>
+                    <a href="javascript:window.location.reload()" className="btn">Confirmer le vote</a>
               </div>
 
-              <img src={bohemian_rhapsody} className="img_film3" alt="Image du film 3" />
+              <img src={ligne_verte} className="img_film3" alt="Image du film 3" />
               <div className="Film3">
                   <h3 className="TitreFilm3"> {movie3.title} </h3>
                   <p> Auteur: {movie3.author} </p>
